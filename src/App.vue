@@ -1,14 +1,15 @@
 <template>
-  <List :blogText="blogText" />
-
+  <h1>Sojin Blog</h1>
+  <router-link to="/home">홈페이지</router-link>
+  <router-link to="/list">리스트페이지</router-link>
+  <router-link to="/detail">상세페이지</router-link>
+  <router-view :blogText="blogText"></router-view>
 </template>
 
 <script>
 import blog from "./assets/blog";
-import List from "./components/List.vue";
 export default {
   name: "App",
-  components: { List },
   data() {
     return { blogText: blog };
   },
