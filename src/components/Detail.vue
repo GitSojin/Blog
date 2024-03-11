@@ -1,8 +1,13 @@
 <template>
   <div>
     <h4>상세페이지</h4>
-    <h5>{{ blogText[$route.params.id].title }}</h5>
-    <p>{{ blogText[$route.params.id].content }}</p>
+    <h5>
+      {{ title }}
+    </h5>
+    <p>
+      {{ content }}
+    </p>
+    <router-view> </router-view>
   </div>
 
   <div class="card" style="width: 18rem">
@@ -17,6 +22,18 @@ export default {
   name: "Detail",
   props: {
     blogText: Array,
+  },
+  data() {
+    return {
+      title: "",
+      content: "",
+    };
+  },
+  mounted() {
+    const id = Number(this.$route.params?.id[0] ?? 0);
+    console.log("[Mounted] id:", id);
+    this.title = this.blogText?.[id]?.title ?? "No title";
+    this.content = this.blogText?.[id]?.content ?? "No contents";
   },
 };
 </script>

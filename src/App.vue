@@ -3,6 +3,7 @@
   <router-link to="/home">홈페이지</router-link>
   <router-link to="/list">리스트페이지</router-link>
   <router-link :blogText="blogText" to="/detail">상세페이지</router-link>
+
   <router-view :blogText="blogText"></router-view>
 </template>
 
